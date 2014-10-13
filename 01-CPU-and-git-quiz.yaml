@@ -1,0 +1,27 @@
+---
+course: 'CSCI 3431: Operating Systems'
+qznumber: 2
+qzdate: '13 October 2014'
+qztitle: 'Memory and Scheduling'
+instructions: |
+	Answer each of the following questions in complete sentences. 
+	Take note of point values.
+question:
+- text: 'How do the \texttt{fork()} and \texttt{exec()} system calls differ?'
+  points: 4
+
+- text: 'What are the three possible return codes of \texttt{fork()} and what do they mean? '
+  points: 3
+
+- text: 'What is the return code for \texttt{exec()}? Explain your answer. '
+  points: 2
+
+- text: 'After you call \texttt{fork()} what process is running? A Short answer will suffice. '
+  points: 1
+
+- text: 'What are two ways the OS regains control of the CPU? '
+  points: 2
+
+- text: 'Youve made changes to program.c in your git repo that youve cloned from GitHub.'
+  points: 3
+...

@@ -1,21 +1,21 @@
-% -*- program: xelatex -*-
-
-% Dr Driver's standard reading quiz
+% A pandoc template adapted from Dr Driver's standard reading quiz
 % https://gist.github.com/danieldriver/90a73c4d3c72dd837e39
 % =================================
 \documentclass[letterpaper,
-% answers,
+$if(answers)$
+ answers,
+$endif$
 addpoints]{exam}
 
 % Quiz metadata
-\newcommand\course{CSCI 3431: Operating Systems}
-\newcommand\qznumber{1}
-\newcommand\qzdate{24 September 2014}
+\newcommand\course{$course$}
+\newcommand\qznumber{$qznumber$}
+\newcommand\qzdate{$qzdate$}
 
 % Header
 \pagestyle{head}
 \firstpageheader{% left
-	\liningnums{\course\ --- CPU Virtualization Quiz \qznumber} \\
+	\liningnums{\course\ --- $qztitle$ Quiz \qznumber} \\
 	\qzdate
 }{% center - blank
 }{% right
@@ -70,63 +70,24 @@ addpoints]{exam}
 
 	% Quiz instructions
 	\begin{center}
-	\parbox{5.5in}{\centering\itshape Answer each of the following questions in complete sentences. 
-			Take note of point values.}
+	\parbox{5.5in}{\centering\itshape $instructions$}
 	\end{center}
 
 	% Quiz questions
 	\begin{questions}
 
-	\question[4]
-		How do the \texttt{fork()} and \texttt{exec()} system calls differ? \\
-		You might find it helpful to explain how they might be used to build a shell.
-		\vspace{.5in}
-
+$for(question)$
+	\question[$question.points$]
+                $question.text$
 
 		\begin{solution}[\stretch{1}]
-			tk
+                $if(question.answer)$
+		$question.answer$
+		$else$
+		  tk 
+		$endif$
 		\end{solution}
-
-	\question[3]
-		What are the three possible return codes of \texttt{fork()} and what do they mean?
-
-
-		\begin{solution}[\stretch{1}]
-			tk
-		\end{solution}
-
-	\question[2]
-		What is the return code for \texttt{exec()}? Explain your answer.
-
-
-		\begin{solution}[\stretch{1}]
-			tk
-		\end{solution}
-
-	\question[1]
-		After you call \texttt{fork()} what process is running? A Short answer will suffice.
-
-
-		\begin{solution}[\stretch{1}]
-			tk
-		\end{solution}
-
-	\question[2]
-		What are two ways the OS regains control of the CPU?
-
-
-		\begin{solution}[\stretch{1}]
-			tk
-		\end{solution}
-
-	\question[3]
-		You've made changes to program.c in your git repo that you've cloned from GitHub. \\
-		What are the three necessary commands to stage, record, and upload these changes to GitHub.
-
-
-		\begin{solution}[\stretch{1}]
-			tk
-		\end{solution}
+$endfor$
 
 	\newpage
 	\end{questions}
