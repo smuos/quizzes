@@ -4,8 +4,8 @@ qznumber: 2
 qzdate: '13 October 2014'
 qztitle: 'Memory and Scheduling'
 instructions: |
-	Answer each of the following questions in complete sentences. 
-	Take note of point values.
+    Answer each of the following questions in complete sentences. 
+    Take note of point values.
 question:
 - text: 'How do the \texttt{fork()} and \texttt{exec()} system calls differ?'
   points: 4
