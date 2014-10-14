@@ -7,6 +7,9 @@ $if(answerkey)$
 $endif$
 addpoints]{exam}
 
+% For table width scaling
+\usepackage{graphicx}
+
 % Quiz metadata
 \newcommand\course{$course$}
 \newcommand\qznumber{$qznumber$}
