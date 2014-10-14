@@ -2,7 +2,7 @@
 % https://gist.github.com/danieldriver/90a73c4d3c72dd837e39
 % =================================
 \documentclass[letterpaper,
-$if(answers)$
+$if(answerkey)$
  answers,
 $endif$
 addpoints]{exam}
