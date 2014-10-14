@@ -11,6 +11,10 @@ The [XeLaTeX template](templates/quiz.xelatex.template) is largely based off [Dr
 [Quiz 1: CPU and Git](src/01-CPU-and-git-quiz.yaml)  
 This quiz reviews system calls and concepts for dealing with processes, additionally we review the git workflow.  
 
+[Quiz 2: Memory](src/02-Memory-and-scheduling.yaml)  
+This quiz reviews the virtualization of memory, dealing particularly with segmentation.  
+Quiz 2 was not given out in class.  
+
 
 ##Building Quizzes
 The quizzes are built by passing the quiz yaml file to `build-quiz.sh` in `bin`
