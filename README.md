@@ -17,6 +17,14 @@ Quiz 2 was not given out in class.
 
 
 ##Building Quizzes
-The quizzes are built by passing the quiz yaml file to `build-quiz.sh` in `bin`
+The quizzes are built using the Makefile.
 
-Quizzes depend on pandoc and xelatex.
+```bash
+#build .pdf and .tex files for all quizzes
+make all
+
+#clean up build files
+make clean-tex
+```
+
+Generating pdfs of quizzes requires pandoc and XeLaTeX.
