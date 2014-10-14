@@ -1,0 +1,52 @@
+---
+course: 'CSCI 3431: Operating Systems'
+qznumber: 2
+qzdate: '13 October 2014'
+qztitle: 'Memory and Scheduling'
+instructions: |
+    Answer each of the following questions in complete sentences. 
+    Take note of point values.
+
+question:
+- text: |
+    Are the TLB valid bit and the PTE valid bit the same? 
+    If not, what are their differences?
+  points: 2
+
+- text: |
+    What does the \texttt{malloc()} library call take as an argument?
+    What does it return?
+  points: 2
+
+- text: |
+    Work out whether the following virtual address accesses are valid. \newline
+    For valid memory accesses, write out the translated physical address. \newline
+
+    Address space size: 1k \quad Phys mem size: 16k  \newline
+    
+    Segment register information:  \newline
+    
+      Segment 0 base  (grows positive) : 5994 (decimal)  \newline
+      Segment 0 limit                  : 414  (decimal)  \newline
+    
+      Segment 1 base  (grows negative) : 9989 (decimal)  \newline
+      Segment 1 limit                  : 392  (decimal)  \newline
+    
+    \begin{table}[h]
+    \centering
+    \scalebox{1.2}{%
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Memory Access} & \textbf{Valid (y/n)} & \textbf{Physical Address} \\ \hline
+    VA 0: 808 (decimal)    & yes                  & Segment 1: 9773 (decimal) \\ \hline
+    VA 1: 844 (decimal)    &                      &                           \\ \hline
+    VA 2: 392 (decimal)    &                      &                           \\ \hline
+    VA 3: 608 (decimal)    &                      &                           \\ \hline
+    VA 4: 169 (decimal)    &                      &                           \\ \hline
+    VA 5: 943 (decimal)    &                      &                           \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+  points: 10
+...
