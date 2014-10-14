@@ -10,6 +10,7 @@ BLDDIR = build
 
 # Location of Pandoc support files.
 TEMPLATES = ./templates
+TEXFLAGS = -output-directory=$(BLDDIR) --halt-on-error
 
 # All yaml files in the SRCDIR directory
 SOURCES = $(wildcard $(SRCDIR)/*.yaml)
@@ -23,7 +24,7 @@ TEX=$(patsubst %.yaml,%.tex,$(TARGETS))
 
 # Define build types
 all:	$(PDF) $(TEX)
-pdf:	clean $(PDF)
+pdf:	clean $(PDF) clean-tex
 tex:	clean-tex $(TEX)
 
 
@@ -35,8 +36,8 @@ $(BLDDIR)/%.tex: $(SRCDIR)/%.yaml
 
 # .pdf
 $(BLDDIR)/%.pdf: $(BLDDIR)/%.tex
-	xelatex -output-directory=$(BLDDIR) $<; \
-	xelatex -output-directory=$(BLDDIR) $<
+	xelatex $(TEXFLAGS) $< 1>/dev/null; \
+	xelatex $(TEXFLAGS) $< 1>/dev/null
 
 clean:
 	rm -f $(BLDDIR)/*.log $(BLDDIR)/*.aux $(BLDDIR)/*.tex $(BLDDIR)/*.pdf
