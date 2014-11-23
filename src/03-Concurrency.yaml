@@ -1,0 +1,79 @@
+---
+course: 'CSCI 3431: Operating Systems'
+qznumber: 3
+qzdate: '10 November 2014'
+qztitle: 'Concurrency'
+instructions: |
+    Answer each of the following questions in complete sentences. 
+    Take note of point values.
+
+question:
+
+- keywords: threads
+  points: 3
+  space: 0
+  text: |
+    For each, indicate whether the resource is private or shared amongst threads. \newline
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Resource}     & \textbf{Private}     & \textbf{Shared}           \\ \hline
+    Registers             &                      &                           \\ \hline
+    Heap memory           &                      &                           \\ \hline
+    Stack memory          &                      &                           \\ \hline
+    Program counter       &                      &                           \\ \hline
+    Static globals        &                      &                           \\ \hline
+    Code section          &                      &                           \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+- keywords: threads, locks
+  points: 2
+  space: 2
+  text: |
+    Explain what a \textbf{critical section} of code is? 
+
+- keywords: threads, locks
+  points: 3
+  space: 2
+  text: |
+    A function used by multiple threads has a simple counter shown below. \newline
+    Write the assembly-like instructions the code translates into. \newline
+
+    \texttt{counter = counter + 1;}
+
+- keywords: threads, locks
+  points: 3
+  text: |
+    Explain why the above counter code is not atomic. \newline
+    How could you make it atomic?
+
+- keywords: threads, locks
+  points: 3
+  space: 2
+  text: |
+    What are our three criteria for evaluating locks and other concurrent mechanisms? \newline
+
+- keywords: threads, locks
+  points: 5
+  space: 4.5
+  text: |
+    Describe the x86 \texttt{xchg} instruction. \newline
+    How does it help us build a simple spin lock? \newline
+
+- points: 1
+  space: 0
+  text: |
+    Please indicate which of the following is funniest: \newline
+
+    \emph{Some people, when confronted with a problem, think “I know, I’ll use multithreading”.} \newline
+    \emph{Nwo thye hvae two prblmsoe.} 
+    \vspace{0.25in}
+
+    \emph{Multithreading jokes can be insensitive under certain race conditions} \newline
+
+...
