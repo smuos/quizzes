@@ -2,7 +2,7 @@
 % https://gist.github.com/danieldriver/90a73c4d3c72dd837e39
 % =================================
 \documentclass[letterpaper,
-$if(answerkey)$
+$if(answers)$
  answers,
 $endif$
 addpoints]{exam}
@@ -34,7 +34,7 @@ addpoints]{exam}
 % Typography and layout
 \usepackage{fontspec,realscripts}
 \defaultfontfeatures{Ligatures=TeX}
-\setmainfont{Adobe Garamond Pro}
+\setmainfont{Georgia}
 %\setsansfont{Helvetica}
 \frenchspacing
 % - print solutions in sans serif
@@ -66,9 +66,6 @@ addpoints]{exam}
 \setlength{\marginparwidth}{1.5in}
 % NB: remember to use \newpage after the last question
 
-% Custom local commands
-\newcommand\Lord{\textsc{Lord}}
-
 \begin{document}
 
 	% Quiz instructions
@@ -82,14 +79,12 @@ addpoints]{exam}
 $for(question)$
 	\question[$question.points$]
                 $question.text$
+                $if(question.space)$
+                \vspace{$question.space$in}
+                $else$
+                \vspace{1.5in}
+                $endif$
 
-		\begin{solution}[\stretch{1}]
-                $if(question.answer)$
-		$question.answer$
-		$else$
-		  tk 
-		$endif$
-		\end{solution}
 $endfor$
 
 	\newpage
