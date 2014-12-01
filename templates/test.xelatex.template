@@ -1,0 +1,94 @@
+% A pandoc template adapted from Dr Driver's standard reading quiz
+% https://gist.github.com/danieldriver/90a73c4d3c72dd837e39
+% =================================
+\documentclass[letterpaper,
+$if(answers)$
+ answers,
+$endif$
+addpoints]{exam}
+
+% Test metadata
+\newcommand\course{$course$}
+$if(testnumber)$\newcommand\testnumber{$testnumber$}$endif$
+\newcommand\testdate{$testdate$}
+
+% Header
+\pagestyle{head}
+\firstpageheader{% left
+	\liningnums{\course\ \\ $title$ $if(testnumber)$\testnumber$endif$} \\
+	\testdate
+}{% center - blank
+        %\textbf{A-number:\enspace\makebox[2in]{\hrulefill} \ } \\ 
+}{% right
+	\ifprintanswers \textbf{Answer Key} \\
+	\else 
+        \textbf{Name \& A\#:\enspace\makebox[3.5in]{\hrulefill}} \\
+        \fi
+	This test is worth a total of \textbf{\numpoints\ points}.
+}
+%\firstpageheadrule
+\runningheader{}{}{}
+% - add \thepage to double-sided quizzes
+% \pagestyle{headandfoot}
+% \footer{}{\thepage}{}
+
+% Typography and layout
+\usepackage{fontspec,realscripts}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Adobe Garamond Pro}
+%\setsansfont{Helvetica}
+\frenchspacing
+% - print solutions in sans serif
+\unframedsolutions
+\SolutionEmphasis{\sffamily}
+\renewcommand{\solutiontitle}{}
+% - box points & center in the right margin w/ custom setup@point@toks
+\boxedpoints
+\pointsinrightmargin
+\marginbonuspointname{\textsc{up}}
+\makeatletter% rewrite setup@point@toks assuming right margins
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}% define \clap as per https://www.tug.org/TUGboat/tb22-4/tb72perlS.pdf
+\def\setup@point@toks{%
+	\point@toks={%
+		\rlap{\hskip-\@totalleftmargin
+			  \hskip\textwidth
+			  \hskip\@rightmargin
+			  \hskip-\rightpointsmargin
+			  \clap{\padded@point@block}% change \llap to \clap
+		}%
+		\global \point@toks={}%
+	}%
+}% end setup@point@toks
+\setlength{\rightpointsmargin}{.5in}% assuming the default 1" margins
+\makeatother
+% - adjust the top and bottom margins
+%\extraheadheight{.25in}
+\extrafootheight{-.5in}
+\setlength{\marginparwidth}{1.5in}
+% NB: remember to use \newpage after the last question
+
+\begin{document}
+
+	% Test instructions
+	\begin{center}
+	\parbox{5.5in}{\centering\itshape $instructions$}
+	\end{center}
+        \vspace{0.4in}
+
+	% Test questions
+	\begin{questions}
+
+$for(question)$
+	\question[$question.points$]
+                $question.text$
+                $if(question.space)$
+                \vspace{$question.space$in}
+                $else$
+                \vspace{1.5in}
+                $endif$
+
+$endfor$
+
+	\newpage
+	\end{questions}
+\end{document}
