@@ -6,22 +6,40 @@ qztitle: 'CPU Virtualization'
 instructions: |
     Answer each of the following questions in complete sentences. 
     Take note of point values.
+
 question:
-- text: 'How do the \texttt{fork()} and \texttt{exec()} system calls differ?'
+
+- keywords: process, fork, exec, shell
   points: 4
+  space: 2
+  text: |
+   How do the \texttt{fork()} and \texttt{exec()} system calls differ? \newline
+   You might find it helpful to explain how they might be used to build a shell. 
 
-- text: 'What are the three possible return codes of \texttt{fork()} and what do they mean? '
+- keywords: fork, process
   points: 3
+  text: 'What are the three possible return codes of \texttt{fork()} and what do they mean? '
 
-- text: 'What is the return code for \texttt{exec()}? Explain your answer. '
+- keywords: exec, process
   points: 2
+  space: 1
+  text: 'What is the return code for \texttt{exec()}? Explain your answer. '
 
-- text: 'After you call \texttt{fork()} what process is running? A Short answer will suffice. '
+- keywords: fork, process
   points: 1
+  space: 1
+  text: 'After you call \texttt{fork()} what process is running? A Short answer will suffice. '
 
-- text: 'What are two ways the OS regains control of the CPU? '
+- keywords: cpu
   points: 2
+  space: 1
+  text: 'What are two ways the OS regains control of the CPU? '
 
-- text: 'Youve made changes to program.c in your git repo that youve cloned from GitHub.'
+- keywords: cpu
   points: 3
+  space: 1
+  text: |
+    You've made changes to \texttt{program.c} in your git repo that youve cloned from GitHub. \newline
+    What are the three necessary commands to stage, record, and upload these changes to GitHub?
+
 ...
