@@ -2,23 +2,28 @@
 course: 'CSCI 3431: Operating Systems'
 qznumber: 2
 qzdate: '13 October 2014'
-qztitle: 'Memory and Scheduling'
+qztitle: 'Memory'
 instructions: |
     Answer each of the following questions in complete sentences. 
     Take note of point values.
 
 question:
-- text: |
+
+- keywords: memory access
+  points: 2
+  text: |
     Are the TLB valid bit and the PTE valid bit the same? 
     If not, what are their differences?
-  points: 2
 
-- text: |
+- keywords: malloc
+  points: 2
+  text: |
     What does the \texttt{malloc()} library call take as an argument?
     What does it return?
-  points: 2
 
-- text: |
+- keywords: segmentation
+  points: 10
+  text: |
     Work out whether the following virtual address accesses are valid. \newline
     For valid memory accesses, write out the translated physical address. \newline
 
@@ -48,5 +53,4 @@ question:
     }
     \end{table}
 
-  points: 10
 ...
