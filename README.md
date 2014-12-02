@@ -15,6 +15,13 @@ This quiz reviews system calls and concepts for dealing with processes, addition
 This quiz reviews the virtualization of memory, dealing particularly with segmentation.  
 Quiz 2 was not given out in class.  
 
+[Quiz 3: Concurrency](src/03-Concurrency.yaml)  
+This quiz reviews threads, locks, and issues with concurrent systems.
+
+[Quiz 4: Persistence](src/04-Persistence.yaml)  
+This quiz reviews IO devices, filesystem concepts, and filesystem integrity.
+Quiz 4 was not given out in class.  
+
 
 ##Building Quizzes
 The quizzes are built using the Makefile.
