@@ -1,0 +1,145 @@
+---
+course: 'CSCI 3431: Operating Systems'
+qznumber: 4
+qzdate: '2 December 2014'
+qztitle: 'Persistence'
+instructions: |
+    Answer each of the following questions in complete sentences. 
+    Take note of point values.
+
+question:
+
+- keywords: filesystem,
+  points: 12
+  space: 1.5
+  text: |
+    You attend a hackathon based on the recent opening of CERN data.
+    When you attempt to quick sort the data you unleash the true powers of the newly discovered $\Xi_b^-$ baryons, which transfer your conciousness into your computer!
+    In the process of this unbelievable human-to-computer transfer you corrupt the filesystem.
+    Your only hope of survival is to fix the following filesystem states.
+    
+    Explain whether you can repair the state and how, or what you should do to protect the system from harm (reading garbage data). \newline
+    \textbf{Note:} Every data block has data, you have to determine (and indicate) if it is garbage or not.
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    inodes bitmap & 1                              & 1                  & 1               & 0       \\ \hline
+    inodes        & {[}d a:0 r:4{]}                & {[}d a:1 r:2{]}    & {[}f a:2 r:1{]} & {[}{]}  \\ \hline
+    data bitmap   & 1                              & 0                  & 0               & 1       \\ \hline
+    data          & {[}(.,0) (..,0) (a,1) (b,2){]} & {[}(.,1) (..,0){]} & {[}x{]}         & {[}y{]}  \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+    \vspace{1.5in}
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    inodes bitmap & 1                              & 0                  & 1               & 0       \\ \hline
+    inodes        & {[}d a:0 r:4{]}                & {[}{]}             & {[}f a:3 r:1{]} & {[}{]}  \\ \hline
+    data bitmap   & 1                              & 0                  & 1               & 0       \\ \hline
+    data          & {[}(.,0) (..,0) (c,2) (d,4){]} & {[}(.,1) (..,0){]} & {[}x{]}         & {[}y{]}  \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+    \vspace{1.5in}
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    inodes bitmap & 0                              & 0                  & 0               & 0       \\ \hline
+    inodes        & {[}d a:0 r:4{]}                & {[}f a:1 r:2{]}    & {[}f a:2 r:1{]} & {[}{]}  \\ \hline
+    data bitmap   & 1                              & 1                  & 0               & 0       \\ \hline
+    data          & {[}(.,0) (..,0) (e,1) (g,2){]} & {[}z{]}            & {[}x{]}         & {[}y{]}  \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+    \newpage
+
+- keywords: filesystem,
+  points: 4
+  space: 2
+  text: |
+    A hard link is a directory entry that associates a name with a file on the filesystem. 
+    A symbolic link is a special file that contains a reference to another file or directory in the form of a path.
+    The target is independent of the symbolic link. \newline
+
+    Our filesystem starts in the following state:
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+    \hline
+    inodes bitmap & 1                              & 1                  & 1               & 0      & 0      & 0      & 0      & 0      \\ \hline
+    inodes        & {[}d a:0 r:4{]}                & {[}d a:1 r:2{]}    & {[}f a:2 r:1{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} \\ \hline
+    data bitmap   & 1                              & 1                  & 0               & 0      & 0      & 0      & 0      & 0      \\ \hline
+    data          & {[}(.,0) (..,0) (g,1) (q,2){]} & {[}(.,1) (..,0){]} & {[}a{]}          & {[}{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+    Determine if the following state represents the filesystem after the creation of a hard link or a symbolic link.
+    Explain your answer.
+
+    \begin{table}[h]
+    \centering
+    \scalebox{1.0}{%
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+    \hline
+    inodes bitmap & 1                              & 1                  & 1               & 0      & 0      & 0      & 0      & 0      \\ \hline
+    inodes        & {[}d a:0 r:4{]}                & {[}d a:1 r:2{]}    & {[}f a:2 r:2{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} \\ \hline
+    data bitmap   & 1                              & 1                  & 0               & 0      & 0      & 0      & 0      & 0      \\ \hline
+    data          & {[}(.,0) (..,0) (g,1) (q,2){]} & {[}(.,1) (..,0) (p,2){]} & {[}a{]}          & {[}{]} & {[}{]} & {[}{]} & {[}{]} & {[}{]} \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+
+- keywords: IO
+  points: 3
+  space: 2
+  text: |
+    There are two common methods of low level device interaction used today: IO instructions and Memory mapped IO, explain both. \newline
+    Choose one and name a benefit or negative of that approach.
+    \newpage
+
+- keywords: IO
+  points: 3
+  space: 2
+  text: |
+    What does DMA stand for? What does a DMA controller do? Why would we want our hardware and OS to support one?
+
+- keywords: filesystem
+  points: 6
+  space: 3
+  text: |
+    We discussed two different techniques to reference data blocks on a filesystem: multi-level indexing and extents. 
+    Describe both and compare their benefits under different conditions.
+
+- keywords: filesystem
+  points: 3
+  space: 2
+  text: |
+    You are designing a video editing system that will store multi gigabyte files. \newline
+    The old unix beard at the office says to use a 4 kilobyte block size on the filesystem because it's a standard. \newline
+    What do you do?
+
+- keywords: filesystem
+  points: 1
+  space: 1
+  text: |
+    Bonus scenario! \newline
+    The unix beard now respects you for your intelligent input, do you dare make a comment on his use of the word kilobyte?
+    What might the International Electrotechnical Commission think of this confusing use of SI prefixes?
+
+...
