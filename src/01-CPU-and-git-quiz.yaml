@@ -28,7 +28,7 @@ question:
 - keywords: fork, process
   points: 1
   space: 1
-  text: 'After you call \texttt{fork()} what process is running? A Short answer will suffice. '
+  text: 'After you call \texttt{fork()} what process is running? A short answer will suffice. '
 
 - keywords: cpu
   points: 2
@@ -39,7 +39,7 @@ question:
   points: 3
   space: 1
   text: |
-    You've made changes to \texttt{program.c} in your git repo that youve cloned from GitHub. \newline
+    You've made changes to \texttt{program.c} in your git repo that you've cloned from GitHub. \newline
     What are the three necessary commands to stage, record, and upload these changes to GitHub?
 
 ...
