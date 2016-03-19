@@ -131,7 +131,7 @@ question:
   space: 2
   text: |
     You are designing a video editing system that will store multi gigabyte files. \newline
-    The old unix beard at the office says to use a 4 kilobyte block size on the filesystem because it's a standard. \newline
+    The old Unix beard at the office says to use a 4 kilobyte block size on the filesystem because it's a standard. \newline
     What do you do?
 
 - keywords: filesystem
@@ -139,7 +139,7 @@ question:
   space: 1
   text: |
     Bonus scenario! \newline
-    The unix beard now respects you for your intelligent input, do you dare make a comment on his use of the word kilobyte?
+    The Unix beard now respects you for your intelligent input, do you dare make a comment on his use of the word kilobyte?
     What might the International Electrotechnical Commission think of this confusing use of SI prefixes?
 
 ...
